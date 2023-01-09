@@ -1,7 +1,9 @@
+import Logger
+
 defmodule ChatApiWeb.Endpoint do
   use Sentry.PlugCapture
   use Phoenix.Endpoint, otp_app: :chat_api
-  use Appsignal.Phoenix
+  #use Appsignal.Phoenix
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.

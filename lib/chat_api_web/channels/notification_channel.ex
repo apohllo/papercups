@@ -1,6 +1,6 @@
 defmodule ChatApiWeb.NotificationChannel do
   use ChatApiWeb, :channel
-  use Appsignal.Instrumentation.Decorators
+  #use Appsignal.Instrumentation.Decorators
 
   alias ChatApiWeb.Presence
   alias Phoenix.Socket.Broadcast
@@ -27,7 +27,7 @@ defmodule ChatApiWeb.NotificationChannel do
     {:reply, {:ok, payload}, socket}
   end
 
-  @decorate channel_action()
+  #@decorate channel_action()
   def handle_in("read", %{"conversation_id" => id}, socket) do
     # TODO: the logic around marking conversations read may have to change with mentions,
     #       because we need to track who has actually seen the message and who hasn't...
@@ -49,7 +49,7 @@ defmodule ChatApiWeb.NotificationChannel do
     end
   end
 
-  @decorate channel_action()
+  #@decorate channel_action()
   def handle_in("shout", payload, socket) do
     with %{current_user: current_user} <- socket.assigns,
          %{id: user_id, account_id: account_id} <- current_user do
